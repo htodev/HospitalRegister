@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-colour: lightgrey">
+    <div class="container marketing">
+        <h1>Hello, <span style="front-size: 2rem">{{user}}</span> </h1>
+        <h3>This is your profile! Yuo can choose one of the actions bellow:</h3>
+            <div class="row" style="mirgin-top:10%">
+                <div class="cool-log-6 text container">
+                    <h1>Change password</h1>
+                    <p><a class="btn btn-secondary" href="{% url 'password_change' %}" role="button"> Change password</a></p>
+                </div>
+            </div>
+            <div class="row" style="mirgin-top:10%">
+                <div class="cool-log-6 text container">
+                    <h1>Resset password</h1>
+                    <p><a class="btn btn-secondary" href="{% url 'password_reset' %}" role="button">Reset password</a></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="log-lg-12 text-conteiner">
+                    <h3><a href="{% url 'logout' %}" role="button">Logout</a></h3>
+                </div>
+
+            </div>
+    </div>
+
+
+</body>
+</html>

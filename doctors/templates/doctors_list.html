@@ -1,0 +1,16 @@
+{% block 'body' %}
+<div class="row">
+    {% for f in doctors %}
+    <div class="col-log-4">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{f.model}}</h5>
+                <p class="card-text">{{f.name}}</p>
+                <p class="card-text">{{f.specialty}}</p>
+                <a href="/todetailID" class="btn btn-primary">See detail</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
