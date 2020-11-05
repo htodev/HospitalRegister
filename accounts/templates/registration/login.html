@@ -2,25 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title></title>
 </head>
 <body>
- <div class="container">
-        <div class="row">
-            <div class="col-lg-6"></div>
-            <div class="col-lg-6">
-                <form style="border: 1px solid grey; margin: 0% 0%; padding: 10% 5%"method="post">
-                                    <h2>Login</h2>
-                       {% csrf_token %}
-                    {{form.as_p}}
-                    <button type="submit">Login</button>
-                      <br>
-                    <span>Do not have an account?<a href="{% url 'register' %}" style="colour:orange">Sign up here</a></span>
-                </form>
-            </div>
-            <div class="col-lg-3"></div>
-        </div>
- </div>
+     <div class="container">
+                    <form style="border: 1px solid grey; margin: 0% 0%; padding: 10% 5%; background: solid #000"method="post">
+                                        <h2>Login</h2>
+                           {% csrf_token %}
+                        {{form.as_p}}
+                        <button type="submit">Login</button>
+                          <br>
+                        <span>Do not have an account?<a href="{% url 'register' %}" style="colour:orange">Sign up here</a></span>
+                    </form>
+
+     </div>
 </body>
 </html>
 

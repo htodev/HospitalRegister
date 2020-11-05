@@ -1,16 +1,28 @@
-{% block 'body' %}
-<div class="row">
-    {% for f in doctors %}
-    <div class="col-log-4">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{f.model}}</h5>
-                <p class="card-text">{{f.name}}</p>
-                <p class="card-text">{{f.specialty}}</p>
-                <a href="/todetailID" class="btn btn-primary">See detail</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+             {% for doctor in doctors  %}
+            <div class="col-lg-4">
+                 <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">{{book.title}}</h5>
+                  <h5>Doctor: {{doctor.name}}</h5>
+                <p class="card-text">{{doctor.specialty}}</p>
+                <a href="{% url 'doctor-detail' doctor.id %}" class="btn btn-primary">See more</a>
+                <a href="{% url 'doctor-delete' doctor.id %}" class="btn btn-danger">Delete</a>
+              </div>
             </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
-    {% endfor %}
-</div>
-{% endblock %}
+
+</body>
+</html>
