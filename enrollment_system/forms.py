@@ -8,7 +8,7 @@ from .models import Enrollment
 
 class EnrollmentForm(forms.ModelForm):
 
-    patient_name = make = forms.CharField(required=True, widget=forms.TextInput(
+    patient_name = forms.CharField(required=True, widget=forms.TextInput(
         attrs={
             'class': 'form-control'
         }
@@ -29,8 +29,6 @@ class EnrollmentForm(forms.ModelForm):
             'class': 'form-control'
         }
     ))
-
-    signed_out = forms.BooleanField(initial=False)
 
     room_number = forms.IntegerField(required=True,
                                      min_value=0,
