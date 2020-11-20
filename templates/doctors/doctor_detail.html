@@ -7,6 +7,8 @@
 
 </head>
 <body>
+    {% include 'common/apps_header.html'%}
+
     <div class="container">
         <div class="row">
                 <div class="col-lg-6">
@@ -18,5 +20,8 @@
             <a class="btn btn-primary" href="{% url 'doctor-update' doctor.id%}">Edit</a>
         </div>
     </div>
+
+    {% include 'common/footer.html' %}
+
 </body>
 </html>

@@ -40,7 +40,8 @@ INSTALLED_APPS = [
 
     'accounts',
     'doctors',
-    'enrollment_system'
+    'enrollment_system',
+    'common'
 ]
 
 MIDDLEWARE = [
@@ -60,7 +61,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

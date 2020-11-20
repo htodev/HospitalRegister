@@ -1,5 +1,4 @@
-from django.urls import path, include
-
+from django.urls import path
 from .import views
 
 urlpatterns = [
@@ -8,5 +7,4 @@ urlpatterns = [
     path('create/', views.EnrollmentCreate.as_view(), name='enrollment-create'),
     path('update/<int:pk>/', views.EnrollmentUpdate.as_view(), name='enrollment-update'),
     path('delete/<int:pk>/', views.EnrollmentDelete.as_view(), name='enrollment-delete')
-
 ]
