@@ -16,9 +16,7 @@
               <div class="card-body">
                 <h5 class="card-title">{{book.title}}</h5>
                   <h5>Doctor: {{doctor.name}}</h5>
-                <p class="card-text">{{doctor.specialty}}</p>
-                <a href="{% url 'doctor-detail' doctor.id %}" class="btn btn-primary">See more</a>
-                <a href="{% url 'doctor-delete' doctor.id %}" class="btn btn-danger">Delete</a>
+                <p class="card-text">Specialty: {{doctor.specialty}}</p>
               </div>
             </div>
             </div>
@@ -29,4 +27,5 @@
     {% include 'common/footer.html' %}
 
 </body>
+</html>
 </html>

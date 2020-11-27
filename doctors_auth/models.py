@@ -1,13 +1,8 @@
-from django.db import models
 from django.contrib.auth.models import User
-# from accounts.models import UserProfile
-
-# from .enums import SpecialityEnum
+from django.db import models
 
 
-# Create your models here.
-class Doctors(models.Model):
-
+class DoctorProfile(models.Model):
     """Defines Doctor model."""
     KIND_CHOICES = (
         ('Urologist', 'Urologist'),
