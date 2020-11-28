@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctors list</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    {% include 'common/header.html'%}
+
+    <div class="container">
+        <div class="row">
+            {% if doctors|length > 0 %}
+                 {% for doctor in doctors  %}
+                <div class="col-lg-4">
+                     <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">{{book.title}}</h5>
+                      <h5>Doctor: {{doctor.name}}</h5>
+                    <p class="card-text">Specialty: {{doctor.specialty}}</p>
+                  </div>
+                </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+                <h1 class="text-center">Sorry, there are no doctors</h1>
+            {% endif %}
+
+    </div>
+
+    {% include 'common/footer.html' %}
+
+</body>
+</html>
+</html>

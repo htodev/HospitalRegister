@@ -15,13 +15,9 @@ def register_user(request):
     else:
         form = RegisterForm(request.POST)
         profile_form = ProfileForm(request.POST)
-        print(dir(profile_form))
         if form.is_valid() and profile_form.is_valid():
-            print(333333333)
             user = form.save()
-            print(111111111)
             profile = profile_form.save(commit=False)
-            print(222222222)
             profile.user = user
             profile.save()
 
@@ -42,17 +38,14 @@ def login_user(request):
         }
         return render(request, 'auth/login.html', context)
     else:
-        # user = authenticate(request, username='Hristo', password='qwerty1Q')
-        # if user:
         login_form = LoginForm(request.POST)
-        # return_url = get_redirect_url(request.POST)
         if login_form.is_valid():
             username = login_form.cleaned_data['username']
             password = login_form.cleaned_data['password']
             user = authenticate(username=username, password=password)
             if user:
                 login(request, user)
-                return redirect('enrollment-create')
+                return redirect('landing-page')
         context = {
             'login_form': login_form,
         }

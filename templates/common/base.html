@@ -4,7 +4,11 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-{% include 'common/header.html'%}
+{% if user.is_authenticated %}
+    {% include 'auth/profile/apps_header.html'%}
+{% else %}
+    {% include 'common/header.html'%}
+{% endif %}
 
 {% block site_content %}
 {% endblock %}

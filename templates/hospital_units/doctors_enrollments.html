@@ -10,17 +10,19 @@
 
     <div class="container">
         <div class="row">
-             {% for enrollment in enrollments  %}
+             {% for record in records  %}
             <div class="col-lg-4">
                  <div class="card" style="width: 18rem;">
               <div class="card-body">
                  <p class="card-text">Record:</p>
-                  <h5>Patient name: {{enrollment.patient_name}}</h5>
-                  <h5>Symptoms: {{enrollment.symptoms}}</h5>
-                  <h5>Diagnosis: {{enrollment.diagnosis}}</h5>
-                  <h5>Received: {{enrollment.received_at}}</h5>
-                  <h5>Room: {{enrollment.room_number}}</h5>
-                  <h5>Dr: {{enrollment.doctor_name}}</h5>
+                  <h5>Patient name: {{record.patient_name}}</h5>
+                  <h5>Symptoms: {{record.symptoms}}</h5>
+                  <h5>Diagnosis: {{record.diagnosis}}</h5>
+                  <h5>Received: {{record.received_at}}</h5>
+                  <h5>Room: {{record.room_number}}</h5>
+                  <h5>Dr: {{record.doctor_name}}</h5>
+                <a href="{% url 'enrollment-detail' record.id %}" class="btn btn-primary">See more</a>
+                <a href="{% url 'enrollment-delete' record.id %}" class="btn btn-danger">Delete</a>
               </div>
             </div>
             </div>
