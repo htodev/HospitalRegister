@@ -16,7 +16,8 @@ class RegisterForm(UserCreationForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = DoctorProfile
-        exclude = ['user']
+        fields = ['profile_picture', 'name', 'specialty']
+        # exclude = ['user']
 
 
 class LoginForm(forms.Form):
@@ -24,3 +25,4 @@ class LoginForm(forms.Form):
     password = forms.CharField(
         widget=forms.PasswordInput(),
     )
+

@@ -15,14 +15,16 @@
             </div>
             <div class="col-lg-6">
                 <p class="card-text">Record</p>
-                  <h5 class="card-title">{{enrollment.doctor_name}}</h5>
                   <h5>Patient name: {{enrollment.patient_name}}</h5>
                   <h5>Symptoms: {{enrollment.symptoms}}</h5>
                   <h5>Diagnosis: {{enrollment.diagnosis}}</h5>
                   <h5>Received: {{enrollment.received_at}}</h5>
                   <h5>Treating dr.: {{enrollment.signed_out}}</h5>
                   <h5>Room: {{enrollment.room_number}}</h5>
+                  <h5>Dr: {{enrollment.doctor_name}}</h5>
                 <a class="btn btn-primary" href="{% url 'enrollment-update' enrollment.id%}">Edit</a>
+                <a href="{% url 'enrollment-delete' enrollment.id %}" class="btn btn-danger">Delete</a>
+
             </div>
 
         </div>

@@ -15,6 +15,10 @@ class DoctorProfile(models.Model):
         ('Surgeon', 'Surgeon'),
     )
 
+    profile_picture = models.ImageField(
+        upload_to='users',
+        blank=True
+    )
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=30)
     specialty = models.CharField(max_length=20, choices=KIND_CHOICES)

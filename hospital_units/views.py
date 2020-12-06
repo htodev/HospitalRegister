@@ -19,9 +19,7 @@ def all_doctors(request):
 
 
 def doctors_records(request):
-    doctor = DoctorProfile.objects.get(user_id=request.user.id)
-    query = Enrollment.objects.filter(doctor_name_id=doctor.id)
     context = {
-        'records': query
+        'enrollments': Enrollment.objects.filter(doctor_name_id=request.user.doctorprofile.id)
     }
     return render(request, 'hospital_units/doctors_enrollments.html', context)
