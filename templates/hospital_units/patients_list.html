@@ -12,11 +12,11 @@
         <div class="row">
              {% if patients|length > 0 %}
                  {% for patient in patients %}
-                <div class="col-lg-4">
+                <div class="col-lg-4" style="margin-top:1%">
                      <div class="card" style="width: 18rem;">
                   <div class="card-body">
-                      <h5>Patient name: {{ patient.patient_name }}</h5>
-                    <p class="card-text">Room number: {{ patients.room_number }}</p>
+                      <h5><span>Patient name:</span> {{ patient.patient_name }}</h5>
+                      <h5>Room number: {{ patient.room_number }}</h5>
                   </div>
                 </div>
                 </div>

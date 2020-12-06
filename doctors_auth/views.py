@@ -75,8 +75,6 @@ def doctor_profile_edit(request):
         }
         return render(request, 'auth/profile/doctor_profile_edit.html', context)
     else:
-        print(dir(request))
-        print(request.method)
         form = ProfileForm(request.POST, request.FILES, instance=user.doctorprofile)
         if form.is_valid():
             form.save()
