@@ -1,3 +1,7 @@
+"""This module contains generic CBV which provide
+create, get, update, delete and list functionality
+for Enrollment model. """
+
 from django.views import generic
 from django.shortcuts import get_object_or_404
 from django.core.exceptions import PermissionDenied
@@ -6,6 +10,8 @@ from.forms import EnrollmentForm
 
 
 class EnrollmentCreate(generic.CreateView):
+    """It contains create functionality. """
+
     model = Enrollment
     form_class = EnrollmentForm
     template_name = 'enrollments/enrollment_create.html'
@@ -13,6 +19,7 @@ class EnrollmentCreate(generic.CreateView):
 
 
 class EnrollmentList(generic.ListView):
+    """It contains list functionality. """
 
     model = Enrollment
     template_name = 'enrollments/enrollment_list.html'
@@ -20,11 +27,16 @@ class EnrollmentList(generic.ListView):
 
 
 class EnrollmentDetail(generic.DetailView):
+    """It contains get functionality. """
+
     model = Enrollment
     template_name = 'enrollments/enrollment_detail.html'
     context_object_name = 'enrollment'
 
     def get(self, request, *args, **kwargs):
+        """This method overrides built-in 'get' function and forbid to users which are
+         not owners to Enrollment object to receive access to it. """
+
         obj = get_object_or_404( self.model, pk=kwargs['pk'])
         if request.user.id != obj.doctor_name_id:
             raise PermissionDenied
@@ -32,6 +44,8 @@ class EnrollmentDetail(generic.DetailView):
 
 
 class EnrollmentUpdate(generic.UpdateView):
+    """It contains update functionality. """
+
     model = Enrollment
     template_name = 'enrollments/enrollment_create.html'
     form_class = EnrollmentForm
@@ -39,6 +53,8 @@ class EnrollmentUpdate(generic.UpdateView):
 
 
 class EnrollmentDelete(generic.DeleteView):
+    """It contains delete functionality. """
+
     model = Enrollment
     template_name = 'enrollments/enrollment_delete.html'
     success_url = '/enrollments'

@@ -1,3 +1,5 @@
+"""The 'urlpatterns' list routesURLs to views."""
+
 from django.urls import path
 from .views import all_patients, all_doctors, doctors_records
 
