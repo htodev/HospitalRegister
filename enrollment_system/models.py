@@ -1,4 +1,3 @@
-
 """Contains Enrollment model"""
 
 from django.db import models

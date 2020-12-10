@@ -1,12 +1,13 @@
-from datetime import datetime
+"""Module which creates form on django model."""
 
+from datetime import datetime
 from django import forms
 from django.forms import SelectDateWidget
-
 from .models import Enrollment
 
 
 class EnrollmentForm(forms.ModelForm):
+    """It creates enrollment form, on Enrollment model."""
 
     patient_name = forms.CharField(required=True, widget=forms.TextInput(
         attrs={
@@ -39,5 +40,7 @@ class EnrollmentForm(forms.ModelForm):
                                      ))
 
     class Meta:
+        """This Meta class defines how EnrollmentForm will behave. """
+
         model = Enrollment
         fields = '__all__'

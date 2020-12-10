@@ -1,9 +1,12 @@
+"""It contains  DoctorProfile."""
+
 from django.contrib.auth.models import User
 from django.db import models
 
 
 class DoctorProfile(models.Model):
     """Defines Doctor model."""
+
     KIND_CHOICES = (
         ('Urologist', 'Urologist'),
         ('Gynecologist', 'Gynecologist'),

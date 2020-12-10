@@ -1,9 +1,14 @@
+"""This module contains functionality connected to 
+register user, log-in user, log-out user, filling in doctor's profile data."""
+
 from django.contrib.auth import logout, authenticate, login
 from django.shortcuts import render, redirect
 from .forms import RegisterForm, ProfileForm, LoginForm
 
 
 def register_user(request):
+    """This function register users."""
+    
     if request.method == 'GET':
         context = {
             'form': RegisterForm(),
@@ -30,6 +35,8 @@ def register_user(request):
 
 
 def login_user(request):
+    """This function log-in users."""
+    
     if request.method == 'GET':
         context = {
             'login_form': LoginForm(),
@@ -51,11 +58,15 @@ def login_user(request):
 
 
 def logout_user(request):
+    """This function log-out users."""
+    
     logout(request)
     return redirect('landing-page')
 
 
 def doctor_profile_landing_page(request):
+    """This function filling in doctor data."""
+    
     user = request.user
     context = {
         'user': user,
@@ -66,6 +77,8 @@ def doctor_profile_landing_page(request):
 
 
 def doctor_profile_edit(request):
+    """THis function edits doctor data."""
+    
     user = request.user
     if request.method == 'GET':
         context = {
