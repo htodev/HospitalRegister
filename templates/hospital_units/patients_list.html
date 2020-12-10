@@ -7,7 +7,12 @@
 </head>
 <body>
     {% include 'common/header.html'%}
+    <form method="get" action="{% url 'all-patients' %}" style="margin-top:0.5%">
+        {{ patient_filter_form }}
+        {% csrf_token %}
+        <button>Search</button>
 
+    </form>
     <div class="container">
         <div class="row">
              {% if patients|length > 0 %}
