@@ -37,8 +37,8 @@ class EnrollmentDetail(generic.DetailView):
         """This method overrides built-in 'get' function and forbid to users which are
          not owners to Enrollment object to receive access to it. """
 
-        obj = get_object_or_404( self.model, pk=kwargs['pk'])
-        if request.user.id != obj.doctor_name_id:
+        obj = get_object_or_404(self.model, pk=kwargs['pk'])
+        if request.user.doctorprofile.name != str(obj.doctor_name):
             raise PermissionDenied
         return super().get(request, *args, **kwargs)
 
