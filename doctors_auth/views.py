@@ -2,8 +2,12 @@
 register user, log-in user, log-out user, filling in doctor's profile data."""
 
 from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+from django.views import generic
+
 from .forms import RegisterForm, ProfileForm, LoginForm
+from .models import DoctorProfile
 
 
 def register_user(request):
@@ -76,20 +80,18 @@ def doctor_profile_landing_page(request):
     return render(request, 'auth/profile/doctor_profile_landing_page.html', context)
 
 
-def doctor_profile_edit(request):
-    """THis function edits doctor data."""
-    
-    user = request.user
-    if request.method == 'GET':
-        context = {
-            'user': user,
-            'profile': user.doctorprofile,
-            'form': ProfileForm()
-        }
-        return render(request, 'auth/profile/doctor_profile_edit.html', context)
-    else:
-        form = ProfileForm(request.POST, request.FILES, instance=user.doctorprofile)
-        if form.is_valid():
-            form.save()
-            return redirect('doctor profile')
-        return redirect('doctor profile')
+class DoctorProfileUpdate(generic.UpdateView):
+    """CBV for updating Doctor profile. """
+
+    template_name = 'auth/profile/doctor_profile_edit.html'
+    form_class = ProfileForm
+    model = DoctorProfile
+    success_url = '/auth/profile'
+
+    def get_object(self, queryset=None):
+        """It overrides built-in method in order to take PK of User dynamically
+         and to return DoctorProfile. """
+
+        pk = self.kwargs.get('pk', None)
+        user = self.request.user if pk is None else User.objects.get(pk=pk)
+        return user.doctorprofile

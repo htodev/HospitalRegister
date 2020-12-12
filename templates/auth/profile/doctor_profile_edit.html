@@ -4,7 +4,7 @@
         <form action="{% url 'doctor profile edit' %}" method="post" enctype="multipart/form-data">
             {{ form }}
             {% csrf_token %}
-            <button class="btn btn-primary">Upload</button>
+            <button class="btn btn-primary">Submit</button>
         </form>
 
 </div>
