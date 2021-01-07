@@ -1,6 +1,5 @@
 """This module contains functionality connected to 
 register user, log-in user, log-out user, filling in doctor's profile data."""
-
 from django.contrib.auth import logout, authenticate, login
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
@@ -22,6 +21,9 @@ def register_user(request):
     else:
         form = RegisterForm(request.POST)
         profile_form = ProfileForm(request.POST, request.FILES)
+        user = User.objects.filter(username=request.POST['username'])
+        if user:
+            return render(request, 'auth/error_handling.html ')
         if form.is_valid() and profile_form.is_valid():
             user = form.save()
             profile = profile_form.save(commit=False)
