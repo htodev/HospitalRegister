@@ -34,7 +34,10 @@ How to activate venv and install package requirements
 
     > pip install -r requirements.txt
 
-    * (Windows)
+    * if there is some problems about installing Pillow, run this script:
+    > python -m pip install --upgrade Pillow
+
+    (Windows)
 
 
     $ sudo apt-get install python3.8
@@ -45,7 +48,7 @@ How to activate venv and install package requirements
 
     $ pip install -r requirements.txt
 
-    * (Linux)
+    (Linux)
 
 
 Urls
