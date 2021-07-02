@@ -1,0 +1,19 @@
+          ENROLL SYSTEM
+
+The purpose of this design is to create Django project.
+That system will help hospitals monitor admitted patients and
+their appointed doctors. It will also contain basic information
+about the condition of the patients and other data.
+    Тhe requirements are as follows:
+
+        * Each doctor must have  an user.
+        * Each doctor  must list himself in the enrollment system,
+        which list will be accessible to everyone.
+        * Each doctor must keep a record of the patients admitted by him.
+            * This record is common and  accessible only for the doctors.
+            * The doctor can delete or update the registry, but only for the patients,
+        related to him.
+            * Only doctors can filter registry by doctor name.
+        * There must be a list with names of all hospitalized patients visible to
+        everyone.
+        * Only admin and doctors (owners of the profile) can edit that profile.
