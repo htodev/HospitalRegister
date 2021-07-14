@@ -1,0 +1,6 @@
+1. docker-compose build
+2. docker-compose up
+3. docker exec -it django_container /bin/bash
+4. python manage.py migrate
+
+
